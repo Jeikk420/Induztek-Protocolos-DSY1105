@@ -1,0 +1,15 @@
+.gradle/
+.idea/
+**/build/
+**/target/
+backend/data/
+backend/ms-equipos/data/
+backend/ms-protocolos/data/
+local.properties
+*.iml
+*.jks
+*.keystore
+*.apk
+*.aab
+.env
+.env.*
