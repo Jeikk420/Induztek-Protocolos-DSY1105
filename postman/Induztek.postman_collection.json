@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "Induztek v2 - demostración académica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "equipos",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "protocolos",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "usuario",
+      "value": "t1"
+    },
+    {
+      "key": "clave",
+      "value": "Induztek2026!"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{usuario}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{clave}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Salud catálogo",
+      "request": {
+        "method": "GET",
+        "url": "{{equipos}}/actuator/health"
+      }
+    },
+    {
+      "name": "Mi cuenta",
+      "request": {
+        "method": "GET",
+        "url": "{{equipos}}/api/v2/me"
+      }
+    },
+    {
+      "name": "Catálogos según perfil",
+      "request": {
+        "method": "GET",
+        "url": "{{equipos}}/api/v2/records"
+      }
+    },
+    {
+      "name": "Salud protocolos",
+      "request": {
+        "method": "GET",
+        "url": "{{protocolos}}/actuator/health"
+      }
+    },
+    {
+      "name": "Visitas y protocolos según perfil",
+      "request": {
+        "method": "GET",
+        "url": "{{protocolos}}/api/v2/records"
+      }
+    }
+  ]
+}

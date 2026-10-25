@@ -1,0 +1,5 @@
+#!/bin/sh
+APP_HOME=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+JAVA=java
+if [ -n "$JAVA_HOME" ]; then JAVA="$JAVA_HOME/bin/java"; fi
+exec "$JAVA" $MAVEN_OPTS "-Dmaven.multiModuleProjectDirectory=$APP_HOME" -classpath "$APP_HOME/.mvn/wrapper/maven-wrapper.jar" org.apache.maven.wrapper.MavenWrapperMain "$@"

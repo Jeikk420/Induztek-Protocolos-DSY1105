@@ -1,0 +1,18 @@
+services:
+  equipos:
+    build:
+      context: ./backend
+      args: { SERVICE: ms-equipos }
+    ports: ["8081:8081"]
+    volumes: ["equipos-data:/app/data"]
+  protocolos:
+    build:
+      context: ./backend
+      args: { SERVICE: ms-protocolos }
+    ports: ["8082:8082"]
+    environment: { EQUIPOS_BASE_URL: "http://equipos:8081" }
+    volumes: ["protocolos-data:/app/data"]
+    depends_on: [equipos]
+volumes:
+  equipos-data:
+  protocolos-data:
